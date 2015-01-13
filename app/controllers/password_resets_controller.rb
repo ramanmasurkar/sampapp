@@ -16,6 +16,7 @@ class PasswordResetsController < ApplicationController
       flash.now[:danger] = "Email address not found"
       render 'new'
     end
+  end
 
   def edit
   end
@@ -44,7 +45,7 @@ class PasswordResetsController < ApplicationController
     end
 
     def get_user
-      @user = user.find_by(email: params[:email])
+      @user = User.find_by(email: params[:email])
     end
 
     def valid_user
