@@ -79,7 +79,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host 'arcane-tundra-1347.herokuapp.com'
+  host = 'arcane-tundra-1347.herokuapp.com'
   config.action_mailer.default_url_options = {host: host}
   ActionMailer::Base.smtp_settings = {
     :address => 'smtp.gmail.com',
@@ -90,5 +90,5 @@ Rails.application.configure do
     :domain => 'heroku.com',
     :enable_starttls_auto => true
     }
-    
+
 end
