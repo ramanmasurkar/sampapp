@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password ,length:{minimum: 6},allow_blank: true
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follwer_id", dependent: :destroy
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -58,7 +59,7 @@ class User < ActiveRecord::Base
   def feed
     Micropost.where("user_id = ?", id)
   end
-  
+
    private
 
       def downcase_email
